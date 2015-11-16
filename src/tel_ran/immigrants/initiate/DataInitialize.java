@@ -9,6 +9,8 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
+import tel_ran.immigrants.repositories.CountriesData;
+
 
 
 public class DataInitialize implements BeanPostProcessor {
@@ -18,13 +20,13 @@ public class DataInitialize implements BeanPostProcessor {
 	public Object postProcessAfterInitialization(Object bean, String beanName)
 			throws BeansException {
 		System.out.println("HERE");
-		if(beanName.equals("database")) {
+		if(beanName.equals("countryBase")) {
 			
-			if(((RepositoryHibernate)bean).isCountryDataNotEmplty())
+			if(((CountriesData)bean).isCountryDataNotEmplty())
 				System.out.println("DB full");
 			else {
 				System.out.println("DB empty");
-				CountryInitializing ci = new CountryInitializing((RepositoryHibernate) bean);
+				CountryInitializing ci = new CountryInitializing((CountriesData) bean);
 			}
 		}
 				

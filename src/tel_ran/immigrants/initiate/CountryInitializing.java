@@ -11,6 +11,9 @@ import java.util.Map;
 
 
 
+
+import tel_ran.immigrants.repositories.CountriesData;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
@@ -27,7 +30,7 @@ public class CountryInitializing {
 	private final static String KEY_NAME = "Name";
 	private final static String KEY_LINK = "Link";
 	
-	public CountryInitializing(RepositoryHibernate db) {
+	public CountryInitializing(CountriesData db) {
 		dataFromFile = new ArrayList();
 		try {
 			getDataFromFile();
@@ -45,7 +48,7 @@ public class CountryInitializing {
 		}
 	}
 	
-	private void setDataToDb(RepositoryHibernate db) {
+	private void setDataToDb(CountriesData db) {
 		
 		for(Map<String,String> mp : dataFromFile) {
 			db.addContry(mp.get(KEY_NAME), mp.get(KEY_LINK));			
