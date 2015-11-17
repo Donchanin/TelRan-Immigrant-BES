@@ -23,7 +23,10 @@ public class CountriesData {
 	@PersistenceContext(unitName="springHibernate")
 	EntityManager em;
 	
-	
+	public List<Country> getCountryList(){
+		List<Country> result = em.createQuery("SELECT c FROM Country c").getResultList();
+		return result;		
+	}
 	
 	public boolean isCountryDataNotEmplty() {
 		
