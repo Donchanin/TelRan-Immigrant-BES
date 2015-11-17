@@ -27,7 +27,7 @@ public class CountriesData {
 	
 	public boolean isCountryDataNotEmplty() {
 		
-		String query = "SELECT c FROM EntityCountry c";
+		String query = "SELECT c FROM Country c";
 		
 		if(em == null)
 			System.out.println("NULL");

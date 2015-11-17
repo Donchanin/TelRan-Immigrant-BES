@@ -34,7 +34,7 @@ public class PersonDocuments {
   @JoinColumn(name = "PERSONDATA_ID", nullable = false)
   private PersonData personData;
   
-  @OneToMany (mappedBy = "persondocument")
+  @OneToMany (mappedBy = "personDocument")
   private List<WayDocuments> waydocuments;
     
   

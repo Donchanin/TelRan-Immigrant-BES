@@ -5,7 +5,7 @@
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd ">
  
- <bean id="dataInitialize" class="tel_ran.immigrant.initiate.DataInitialize" />
+ 
   
   <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
  
@@ -19,6 +19,6 @@
     
   <bean id="countryBase" class="tel_ran.immigrants.repositories.CountriesData" />
   
-  
+  <bean id="dataInitialize" class="tel_ran.immigrants.initiate.DataInitialize"></bean>
   
   </beans>

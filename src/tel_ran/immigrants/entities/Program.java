@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -31,9 +32,9 @@ public class Program {
 	@Column(name = "PROGRAM_DESCRIPTION", length=2000)
 	private String description;
 	
-//	@ManyToOne
-//	@JoinColumn(name="COUNTRY_ID", nullable=false)
-//	private Country progr_country;
+	@ManyToOne
+	@JoinColumn(name="COUNTRY_ID")
+	private Country progr_country;
 	
 	@OneToOne
 	@JoinColumn(name="REQUIREMENTS_ID", unique=true,nullable = true)

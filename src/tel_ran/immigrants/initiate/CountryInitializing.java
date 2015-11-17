@@ -1,12 +1,18 @@
 package tel_ran.immigrants.initiate;
 
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+
+
+
 
 
 
@@ -26,7 +32,7 @@ import jdk.nashorn.internal.parser.JSONParser;
 public class CountryInitializing {
 	
 	private List<Map<String, String>> dataFromFile;
-	private final static String FILE_NAME = "country.json";
+	private final static String FILE_NAME = "country";
 	private final static String KEY_NAME = "Name";
 	private final static String KEY_LINK = "Link";
 	
@@ -57,8 +63,17 @@ public class CountryInitializing {
 	}
 
 	private void getDataFromFile() throws JsonIOException, JsonSyntaxException, FileNotFoundException {
+		
 		JsonParser parser = new JsonParser();
-		JsonArray array = (JsonArray) parser.parse(new FileReader(FILE_NAME));
+		File f = null;
+		try {
+			f = new File(CountryInitializing.class.getResource("country").toURI());
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(f.getAbsolutePath());
+		JsonArray array = (JsonArray) parser.parse(new FileReader(f));
 		
 		for(int i = 0; i < array.size(); i++) {
 			JsonObject jsn = (JsonObject) array.get(i);
