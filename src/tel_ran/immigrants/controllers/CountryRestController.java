@@ -99,4 +99,29 @@ public class CountryRestController {
 		return result;		
 	}
 	
+	/**
+	 * Get info about Embassy by its Id
+	 * Return Json with fields :
+	 * - emb_from_country = ID of country-parent(int)
+	 * - emb_from_country_n = NAME
+	 * - emb_in_country = ID of country where the embassy is (int)
+	 * - emb_in_country_n = NAME
+	 * - emb_link = link to web-site (String)
+	 * - emb_phone = number of phone (String)
+	 * - street = address ob embassy. Street(String)
+	 * - building (String)
+	 * - appartament (int)
+	 * - city (String)
+	 * - region (String)
+	 */
+	@RequestMapping(value="/embassy" + "/{idEmbassy}", method = RequestMethod.GET)
+	@ResponseBody
+	public String getEmbassyInfo(@PathVariable int idEmbassy) {
+		String result = "{}";
+		if(idEmbassy>=0) {
+			result = service.getEmbassyInfo(idEmbassy);
+		}
+		return result;
+	}
+	
 }

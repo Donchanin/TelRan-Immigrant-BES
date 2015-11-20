@@ -109,5 +109,10 @@ public class CountryService extends AbstractService {
 		
 		return result;
 	}
+
+	public String getEmbassyInfo(int idEmbassy) {
+				
+		return countryBase.getFullEmbassyInfo(idEmbassy).toString();
+	}
 	
 }

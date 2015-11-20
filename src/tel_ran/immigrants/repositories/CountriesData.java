@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -155,6 +156,15 @@ public class CountriesData {
 	public String countryNameById(int countryId) {
 		Country c = em.find(Country.class, countryId);
 		if(c!=null) return c.getName();
+		return null;
+	}
+
+	public JsonObject getFullEmbassyInfo(int idEmbassy) {
+		Embassy e = em.find(Embassy.class, idEmbassy);
+		JsonObject jsn = getShortEmbassyInfo(e);
+		Country cFrom = e.getCountry();
+		jsn.addProperty(JsonKeys.EMBASSY_FROM_COUNTRY_ID, cFrom.getId());
+		
 		return null;
 	}
 
