@@ -21,7 +21,7 @@
     <property name="entityManagerFactory" ref="emf"/></bean>
     
   <bean id="countryBase" class="tel_ran.immigrants.repositories.CountriesData" />
-  
+  <bean id="countryService" class="tel_ran.immigrnats.services.CountryService"/>
   <bean id="dataInitialize" class="tel_ran.immigrants.initiate.DataInitialize"></bean>
   
 

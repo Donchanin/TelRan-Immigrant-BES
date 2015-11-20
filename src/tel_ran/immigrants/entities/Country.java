@@ -10,6 +10,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import tel_ran.immigrants.constants.JsonKeys;
+
+import com.google.gson.JsonObject;
+
 @Entity
 @Table(name = "country", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "COUNTRY_NAME")
@@ -110,6 +114,6 @@ public class Country {
 	public void setPrograms(List<Program> programs) {
 		this.programs = programs;
 	}
-
+	
 
 }
